@@ -61,7 +61,7 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
         return auth;
     }
 
-    //7. Then if the user authenticated successfully , this method will be hit.
+    //7.  Then if the user authenticated successfully , this method will be hit.
     @Override
     protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain, Authentication authResult) throws IOException, ServletException {
         
