@@ -48,21 +48,14 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-        
-         <!-- Security -->
-         <!-- This will import some default security feature for our spring boot application.-->
-         <!-- Just by adding this dependencies you got a default login page for your api
-            default user name : user and defaut password : will be generated when we run the program 
-            ** The default behaviour can be changed by writing some configuration inside application.properties -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
-        <!-- Optional - This one is used to include some security features inside our thymeleaf views -->
-        <!-- This should be there for this one to work -->
-        <dependency>
-            <groupId>org.thymeleaf.extras</groupId>
-            <artifactId>thymeleaf-extras-springsecurity5</artifactId>
+       <dependency>
+            <groupId>com.auth0</groupId>
+            <artifactId>java-jwt</artifactId>
+            <version>3.4.1</version>
         </dependency>
         
         <!-- dependency added for auto run -->

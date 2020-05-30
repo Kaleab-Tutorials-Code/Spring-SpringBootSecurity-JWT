@@ -29,26 +29,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http
-                .authorizeRequests()
-                .antMatchers("/index.html").permitAll()
-                .antMatchers("/profile/**").authenticated()
-                .antMatchers("/admin/**").hasRole("ADMIN")
-                .antMatchers("/management/**").hasAnyRole("ADMIN", "MANAGER")
-                .antMatchers("/api/public/test1").hasAuthority("ACCESS_TEST1")
-                .antMatchers("/api/public/test2").hasAuthority("ACCESS_TEST2")
-                .antMatchers("/api/public/users").hasRole("ADMIN")
-                .and()
-                .formLogin()
-                //.loginProcessingUrl("/signin") : this can be used if the login button post to url "/signin" which is different from defualt "/login"
-                .loginPage("/login").permitAll()
-//                .usernameParameter("textUserName")  : if the username id used inside login page is different from default you can tell spring like this
-//                .passwordParameter("txtpassWord") : if the password id is used inside login page different from default you can tell spring like this
-                .and()
-                .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/login")
-                .and()
-                .rememberMe().tokenValiditySeconds(2592000).key("mySecret!");
-                //.rememberMeParameter("checkBoxRememberMe") : if the remember-me checkbox id is used inside login page different from default you can tell spring like this 
+    	http
+        .authorizeRequests()
+        .antMatchers("*").permitAll();
     }
 
     //this is authentication provider configuration. everything UserpricipalDetailService is done for it.
