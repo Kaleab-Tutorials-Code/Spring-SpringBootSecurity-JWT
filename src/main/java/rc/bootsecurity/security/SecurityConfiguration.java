@@ -11,8 +11,6 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
-
 import rc.bootsecurity.db.UserRepository;
 
 //1. Here lets actually make use of our JWTAuthentication and JWTAuthorization filters and integrate them
@@ -26,7 +24,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	//userrepository is needed to actually get user data
 	private UserRepository userRepository;
 
-    public SecurityConfiguration(UserPrincipalDetailsService userPrincipalDetailsService) {
+    public SecurityConfiguration(UserPrincipalDetailsService userPrincipalDetailsService , UserRepository userRepository) {
         this.userPrincipalDetailsService = userPrincipalDetailsService;
         this.userRepository = userRepository;
     }
